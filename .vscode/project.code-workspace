@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "ROOT",
+      "path": "../"
+    },
+    {
+      "name": "vscode-extension",
+      "path": "../apps/extension"
+    },
+    {
+      "name": "utils-library",
+      "path": "../packages/utils"
+    }
+  ],
+  "settings": {}
+}

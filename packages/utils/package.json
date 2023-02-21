@@ -1,0 +1,30 @@
+{
+  "name": "@vscode-monorepo-extension/utils",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "exports": {
+    "./libs/*": {
+      "import": "./libs/*.mjs",
+      "require": "./libs/*.cjs",
+      "types": "./libs/*.d.ts"
+    }
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "clean:libs": "rimraf libs",
+    "build:lib": "tsup",
+    "build": "npm run clean:libs && npm run build:lib",
+    "lint": "npm run lint:eslint",
+    "lint:eslint": "eslint .",
+    "lint:eslint-fix": "eslint . --fix"
+  },
+  "keywords": [],
+  "author": "he110te4m",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/glob": "^8.0.1",
+    "glob": "^8.1.0",
+    "tsup": "^6.5.0"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "vscode-pnpm-extension",
+  "displayName": "",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "license": "GPL-3.0",
+  "icon": "icons/logo.png",
+  "publisher": "he110te4m",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/He110te4m"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/*"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "package": "npm run vscode:prepublish && npm run package:vsix",
+    "package:vsix": "vsce package --no-dependencies",
+    "clean:dist": "rimraf out",
+    "vscode:prepublish": "npm run clean:dist && npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "esbuild": "^0.17.6",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+  },
+  "contributes": {
+  }
+}
